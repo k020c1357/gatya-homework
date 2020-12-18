@@ -60,7 +60,7 @@
                   1100円を使って {{time}} ガチャを引いた。<br />
                  <br />
                  <h5>結果は：</h5>
-                 <div class="table-fluid">
+               </p>
                  <table class="table table-striped">
                    <tr>
                   {% for key, value in card_type_list.items() %}
@@ -68,18 +68,6 @@
                   </tr>
                   {%endfor %}
                 </table>
-                </div>
-                <div class="portfolio-item-caption-content text-center text-white">
-                <table class="table table-striped">
-                  <tr>
-                  {% for key, value in select_num_list.items() %}
-                    <th>{{key + 1}} : {{value}}</th>
-                    <br />
-                  </tr>
-                  {%endfor %}
-                </table>
-                </div>
-                </p>
                 <a
                   class="btn btn-primary"
                   data-dismiss="modal"

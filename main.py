@@ -1,7 +1,9 @@
 import random
+
 from flask import Flask, render_template
 
-#　関数
+
+# 　関数
 
 
 def card_conversion(num):
@@ -20,6 +22,8 @@ def card_conversion(num):
 
 # flask インスタンス作成
 app = Flask(__name__, template_folder='templates')
+card_type = None
+card_type_list = None
 
 
 @app.route('/')
@@ -30,6 +34,7 @@ def index():
 @app.route('/gatya01')
 def gatya01():
     # 1~100の乱数を作って、select_numに入れる
+    global card_type
     select_num = random.randint(1, 100)
     card_type = card_conversion(select_num)
 
@@ -40,6 +45,7 @@ def gatya01():
 @app.route('/gatya11')
 def gatya11():
     # list を作って
+    global card_type_list
     select_num_list = {}
     card_type_list = {}
     for i in range(11):
@@ -49,6 +55,25 @@ def gatya11():
     return render_template("gatya11.html",
                            select_num_list=select_num_list,
                            card_type_list=card_type_list, time=11)
+
+
+@app.route('/gatya_res')
+def gatya_res():
+    global card_type
+    global card_type_list
+    gatya_1 = card_type
+    gatya_11 = card_type_list
+
+    return render_template("gatya_res.html", gatya_1=gatya_1, gatya_11=gatya_11)
+
+
+@app.route('/reset')
+def reset():
+    global card_type
+    global card_type_list
+    card_type = 0
+    card_type_list = {}
+    return render_template("gatya_ret.html", card_type=card_type, card_type_list=card_type_list)
 
 
 app.run(debug=True)

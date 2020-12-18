@@ -39,7 +39,7 @@
                   class="portfolio-modal-title text-secondary text-uppercase mb-0"
                   id="portfolioModal1Label"
                 >
-                  今までのガチャの結果
+                  ガチャの結果をリセットしました！
                 </h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
@@ -62,13 +62,12 @@
                  <h5>今までの総結果：</h5>
                </p>
                 <p class="h4">
-
-                  {{gatya_1}}が出た。
+                    空
                   <br />
                 </p>
                  <table class="table table-striped">
                    <tr>
-                  {% for key, value in gatya_11.items() %}
+                  {% for key, value in card_type_list.items() %}
                     <th>{{key + 1}} : {{value}}</th>
                   </tr>
                   {%endfor %}
@@ -76,17 +75,10 @@
                 <a
                   class="btn btn-primary"
                   data-dismiss="modal"
-                  href="javascript:history.go(-1);"
+                  href="/"
                 >
                   <i class="fas fa-times fa-fw"></i>
                   最初に戻る
-                </a> <a
-                  class="btn btn-primary"
-                  data-dismiss="modal"
-                  href="/reset"
-                >
-                  <i class="fas fa-times fa-fw"></i>
-                  リセット
                 </a>
               </div>
             </div>
